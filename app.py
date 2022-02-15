@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import torch, torch.nn as nn
 from torchvision import transforms, datasets
 import torch.optim as optim
-from torch.optim import Adam
+import torch.utils as utils
 
 import numpy
 import sys
@@ -23,8 +23,8 @@ transform_train = transforms.Compose([
 ])
 
 
-dataset_train = datasets.ImageFolder( "data/train", transform = transform_train )
-dataloader_train = torch.utils.data.DataLoader( dataset_train, batch_size = 32, shuffle = True )
+dataset_train =    datasets.ImageFolder( "data/train", transform = transform_train )
+dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 32, shuffle = True )
 
 model = nn.Sequential(
         nn.Conv2d( 1, 8, 5 ),
@@ -47,7 +47,10 @@ model = nn.Sequential(
 
         )
 
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam( model.parameters(), lr = 0.001, weight_decay = 0.0001 )
 
+print( model )
 
 
 
