@@ -35,7 +35,7 @@ dataloader_train = torch.utils.data.DataLoader( dataset_train, batch_size = 32, 
 
 
 
-
+###git test
 
 
 
