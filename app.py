@@ -2,8 +2,12 @@
 
 from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
+
 import torch, torch.nn as nn
 from torchvision import transforms, datasets
+import torch.optim as optim
+from torch.optim import Adam
+
 import numpy
 import sys
 
@@ -22,6 +26,26 @@ transform_train = transforms.Compose([
 dataset_train = datasets.ImageFolder( "data/train", transform = transform_train )
 dataloader_train = torch.utils.data.DataLoader( dataset_train, batch_size = 32, shuffle = True )
 
+model = nn.Sequential(
+        nn.Conv2d( 1, 8, 5 ),
+        nn.ReLU(),
+        nn.MaxPool2d( 2, 2 ),
+
+        nn.Conv2d( 8, 32, 5 ),
+        nn.ReLU(),
+        nn.MaxPool2d( 2, 2 ),
+        
+        nn.Flatten( start_dim = 1 ),
+
+        nn.Linear( 32 * 29 * 29, 1024 ),
+        nn.ReLU(),
+
+        nn.Linear( 1024, 256 ),
+        nn.ReLU(),
+
+        nn.Linear( 256, 2 ),
+
+        )
 
 
 
@@ -32,50 +56,5 @@ dataloader_train = torch.utils.data.DataLoader( dataset_train, batch_size = 32, 
 
 
 
-
-
-
-###git test
-
-
-
-
-"""
-#Create a single neuron
-
-#cnn = nn.Conv2d( 1, 8, 5 )                                                 # create one 5/5 neuron for gray scale images and eight(8) outputs
-#neuron_weights = cnn.weight.data.numpy()                                   # convert to numpy data for visualization
-#print( f"Weights in a single 5/5 neuron >>>\n {neuron_weights} " )
-
-#Transform data to tensor
-#img_tensor = transforms.ToTensor()( gray ).unsqueeze_( 0 )
-
-#Update tensor from created neuron
-#filtered_img_tensor = cnn( img_tensor )
-
-
-
-#View tensors and his properties (shape)
-
-print( )
-print( f"Image to tensor print>>>\n {img_tensor}" )
-print( "The end of image tensor" )
-print( "*"*22 )
-print( f"Image tensor SHAPE: {img_tensor.shape}" )
-print( "*"*22 )
-print()
-print( f"Filtered img tensor SHAPE: {filtered_img_tensor.shape}" )
-print( "*"*22 )
-print( f" Filtered img tensor >>>\n {filtered_img_tensor}" )
-print( "The end" )
-
-#transform filtered tensor in img
-filtered_img = transforms.ToPILImage()( filtered_img_tensor.squeeze_( 0 ))
-
-#view filtered img  
-#plt.figure()
-#plt.imshow( filtered_img, interpolation = "nearest", cmap = "gray" )
-#plt.show()
-"""
 
 
