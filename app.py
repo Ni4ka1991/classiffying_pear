@@ -51,6 +51,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam( model.parameters(), lr = 0.001, weight_decay = 0.0001 )
 
 print( model )
+"""
 for epoch in range( 10 ):
     running_loss = 0.0
     for i, data in enumerate( dataloader_train, 0 ):
@@ -64,7 +65,7 @@ for epoch in range( 10 ):
 
 if epoch % 1 == 0:
     print( "Epoch: {} \t Training loss: {:.6f}".format( epoch, running_loss ) )
-
+"""
 
 
 
