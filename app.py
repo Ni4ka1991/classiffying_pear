@@ -20,6 +20,7 @@ dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 32, shuffl
 
 #print( model )
 
+print( model )
 for epoch in range( 10 ):
     running_loss = 0.0
     for i, data in enumerate( dataloader_train, 0 ):
@@ -37,8 +38,6 @@ for epoch in range( 10 ):
 
 if epoch % 1 == 0:
     print( "Epoch: {} \t Training loss: {:.6f}".format( epoch, running_loss ) )
-
-'''
 
 
 
