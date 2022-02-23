@@ -18,8 +18,8 @@ dataset_train =    datasets.ImageFolder( "data/train", transform = transform_tra
 
 dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 32, shuffle = True )
 
-print( model )
-'''
+#print( model )
+
 for epoch in range( 10 ):
     running_loss = 0.0
     for i, data in enumerate( dataloader_train, 0 ):
