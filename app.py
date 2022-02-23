@@ -20,14 +20,18 @@ dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 32, shuffl
 
 #print( model )
 
-print( model )
-for epoch in range( 10 ):
+print( dataloader_train )
+print( len( dataloader_train ))
+input( "hit enter ..." )
+
+for epoch in range( 3 ):
     running_loss = 0.0
+
     for i, data in enumerate( dataloader_train, 0 ):
 
         print( "i    >>>> {}".format( i ))
 #        print( "data >>>> {}".format( data ))
-
+"""
         inputs, labels = data
         optimizer.zero_grad()
         outputs = model( inputs )
@@ -39,6 +43,7 @@ for epoch in range( 10 ):
 if epoch % 1 == 0:
     print( "Epoch: {} \t Training loss: {:.6f}".format( epoch, running_loss ) )
 
+"""
 
 
 
