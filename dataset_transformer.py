@@ -7,7 +7,7 @@ transform_train = transforms.Compose([
                                    transforms.Grayscale(),
                                    transforms.RandomRotation( 10 ),
                                    transforms.Resize( 150 ),
-                                   transforms.CenterCrop( 128 ),
+#                                   transforms.CenterCrop( 128 ),
                                    transforms.RandomHorizontalFlip(),
                                    transforms.ToTensor(),
                                    transforms.Normalize([0.5], [0.5])
