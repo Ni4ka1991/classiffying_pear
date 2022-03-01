@@ -16,23 +16,23 @@ import sys
 #apply transforms regulations
 dataset_train =    datasets.ImageFolder( "data/train", transform = transform_train )
 
-dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 2, shuffle = True )
+dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 1, shuffle = True )
 
 #print( model )
 
 #print( dataloader_train )
-print( len( dataloader_train ))
+#print( len( dataloader_train ))
 
-input( "hit enter ..." )
+#input( "hit enter ..." )
 
 
-#for epoch in range( 3 ):
-#    running_loss = 0.0
+for epoch in range( 3 ):
+    running_loss = 0.0
 
-#    for i, data in enumerate( dataloader_train, 0 ):
+    for i, data in enumerate( dataloader_train, 0 ):
 
 #        print( "i    >>>> {}".format( i ))
-#        print( "data >>>> {}".format( data ))
+        print( "data >>>> {}".format( data ))
 
 
 #        inputs, labels = data
