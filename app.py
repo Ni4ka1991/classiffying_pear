@@ -29,38 +29,20 @@ dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 1, shuffle
 
 #print( model )
 
-<<<<<<< HEAD
 #print( dataloader_train )
 #print( len( dataloader_train ))
-=======
 print( f"\nLen of dataloader_train >>>{len( dataloader_train )}" )
-#print( f"\nIf batch_size = 2, то тенсоры объединяются по два и соответственно длина dataloader_train сокращается в 2. dataloader_train = dataset/batch_size" )
 print( f"\ntype( dataloader_train )  >>>{type( dataloader_train )}" )
 
->>>>>>> fc21ac7e1e8f9ab01bf3710389bacc92c5ac2059
+for i, data in enumerate( dataloader_train, 0 ):
+    inputs, labels = data
+    optimizer.zero_grad()
+    outputs = model( inputs )
+    loss = criterion( outputs, labels )
+    loss.backward()
+    optimizer.step()
+    running_loss += loss.item()
 
-#input( "hit enter ..." )
-
-
-for epoch in range( 3 ):
-    running_loss = 0.0
-
-    for i, data in enumerate( dataloader_train, 0 ):
-
-#        print( "i    >>>> {}".format( i ))
-        print( "data >>>> {}".format( data ))
-
-
-#        inputs, labels = data
-#        optimizer.zero_grad()
-#        outputs = model( inputs )
-#        loss = criterion( outputs, labels )
-#        loss.backward()
-#        optimizer.step()
-#        running_loss += loss.item()
-
-#if epoch % 1 == 0:
-#    print( "Epoch: {} \t Training loss: {:.6f}".format( epoch, running_loss ) )
 
 
 
