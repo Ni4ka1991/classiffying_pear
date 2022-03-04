@@ -22,10 +22,12 @@ print(f"\ndataset_getitem[16] >>>\n{dataset_train[16]}")
 print(f"\ndataset_getitem[16][0] >>>\n{dataset_train[16][0]}")
 print(f"\ndataset_getitem[16][1] >>>\n{dataset_train[16][1]}")
 dataset_train_16 = np.array( dataset_train[16][0] )
+print( f"type( dataset_getitem[16][0] ) >>> {type( dataset_train[16][0] )}" )
 print(f"\nShape of dataset_getitem[16][0] >>>  {dataset_train_16.shape}")
+#print(f"\nAxis of dataset_getitem[16][0] >>>  {dataset_train_16.dim}")
 #input( "hit enter ..." )
 
-dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 2, shuffle = True )
+dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 3, shuffle = True )
 
 #print( model )
 
