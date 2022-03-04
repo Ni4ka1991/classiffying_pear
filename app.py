@@ -10,18 +10,34 @@ import torch, torch.nn as nn
 import torch.optim as optim
 import torch.utils as utils
 
-import numpy
+import numpy as np
 import sys
 
 #apply transforms regulations
 dataset_train =    datasets.ImageFolder( "data/train", transform = transform_train )
+print( f"type( dataset_train ) >>> {type( dataset_train )}" )
+print( f"Dataset_len ( data/train ) >>> {len( dataset_train )}" )
+print(f"\ndataset_getitem[15] >>>\n{dataset_train[15]}")
+print(f"\ndataset_getitem[16] >>>\n{dataset_train[16]}")
+print(f"\ndataset_getitem[16][0] >>>\n{dataset_train[16][0]}")
+print(f"\ndataset_getitem[16][1] >>>\n{dataset_train[16][1]}")
+dataset_train_16 = np.array( dataset_train[16][0] )
+print(f"\nShape of dataset_getitem[16][0] >>>  {dataset_train_16.shape}")
+#input( "hit enter ..." )
 
 dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 1, shuffle = True )
 
 #print( model )
 
+<<<<<<< HEAD
 #print( dataloader_train )
 #print( len( dataloader_train ))
+=======
+print( f"\nLen of dataloader_train >>>{len( dataloader_train )}" )
+#print( f"\nIf batch_size = 2, то тенсоры объединяются по два и соответственно длина dataloader_train сокращается в 2. dataloader_train = dataset/batch_size" )
+print( f"\ntype( dataloader_train )  >>>{type( dataloader_train )}" )
+
+>>>>>>> fc21ac7e1e8f9ab01bf3710389bacc92c5ac2059
 
 #input( "hit enter ..." )
 
