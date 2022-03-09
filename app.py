@@ -15,9 +15,19 @@ import sys
 
 #apply transforms regulations
 dataset_train =    datasets.ImageFolder( "sml_data/train", transform = transform_train )
-dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 1, shuffle = True )
+#img = Image.open( "sml_data/train/good_pear/pera.jpg" )
 
-print( model )
+plt.figure()
+plt.imshow( dataset_train, interpolation = "nearest" )
+#plt.figure()
+#plt.imshow( gray, interpolation = "nearest", cmap = "gray" )
+plt.show()
+
+
+
+#dataloader_train = utils.data.DataLoader( dataset_train, batch_size = 1, shuffle = True )
+
+#print( model )
 
 
 #for epoch in range( 3 ):
